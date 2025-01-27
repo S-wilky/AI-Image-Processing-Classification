@@ -5,30 +5,32 @@
 
 # Part 1: Using the Basic Classifier and Implementing Grad-CAM
 ### 1. Find an Image:
-- desert_car.jpg from Unsplash
+- dog.jpg from Unsplash
 ### 2. Run the Basic Classifier:
-Use the provided base_classifier.py program to classify the image. This version of the program does not include comments or explanations.
-Prompt the AI to explain what each line of code in the program does. Example Prompt:
-"Explain what each line of this Python program does."
+Top-3 Predictions:
+1: timber_wolf (0.27)
+2: borzoi (0.12)
+3: African_hunting_dog (0.10)
 
-If you do not have previous experience with Python, comment on whether the AI's explanations make sense to you. If you do have Python experience, comment on whether the AI's explanation agrees with your interpretation.
-Record the top-3 predictions and their confidence scores.
-Use the base_classifier.py program to classify the image.
-Record the top-3 predictions and their confidence scores.
-Implement Grad-CAM:
+I don't have much previous experience with writing my own Python code, but the explanations given by AI seem pretty easy to understand, especially since the functions used are well named.
+I used the Grimoire GPT on chatGPT for this assignment.
+
+### 3. Implement Grad-CAM:
 Prompt an AI to help you generate code to implement the Grad-CAM heatmap overlay. Example Prompt:
 "How can I add Grad-CAM to my image classifier to visualize the areas of the image the model focuses on?"
 
 Add the Grad-CAM functionality to the base_classifier.py program.
-Understand Grad-CAM:
-Prompt the AI to explain what Grad-CAM is and how it works. Example Prompt:
-"Can you explain the Grad-CAM algorithm and how it highlights important areas of an image?"
 
-Analyze the Heatmap:
+# There were some issues with the initial AI implementation of Grad-CAM which took some time to debug.
+
+### 4. Understand Grad-CAM:
+It was interesting to learn about Grad-CAM from a high level perspective. I think this step should come before step 3.
+
+### 5. Analyze the Heatmap:
 Run the updated classifier with Grad-CAM on your image.
 Identify which parts of the image the classifier focuses on most heavily.
 Record your observations.
-Part 2: Experimenting with Image Occlusion
+# Part 2: Experimenting with Image Occlusion
 Generate Occlusion Ideas:
 Prompt the AI to suggest three ways to occlude an image to obscure the areas identified in the Grad-CAM heatmap. Example Prompt:
 "What are three ways to occlude an image, such as adding a black box or blurring parts of it?"
