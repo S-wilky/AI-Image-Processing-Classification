@@ -72,3 +72,8 @@ I liked the idea of the first pass, but it felt too blurry. After removing the b
    
 ### Additional Notes
 After completing all the steps I organized the files into folders. I'm not sure if you plan to test each program, so sorry if that makes it harder for you, but it should be easier to view this way!
+
+# Final Report
+I've included my analysis and observations at each step along the way. From the heatmap and occlusion examples I learned that the prediction program's confidence scores were significantly impacted by the occlusion, but the guesses were still surprisingly similar. What surprised me even more was how different the results were for the blur, which was the easiest to see with the human eye. It seemed to rely much more on the general shape, becoming very confident in the Saluki instead of the original predictions.
+The filter I developed was intended to make it look like a galaxy in the background, as if it was a van gogh painting. It was semi-successful, but the quality of the render was a bit poor.
+Overall, the experience of this project was very interesting, but also a little bit frustrating working with the AI at times. It is fascinating to see how easy it is to edit images with python as well!
