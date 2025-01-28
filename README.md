@@ -1,69 +1,74 @@
 # AI Image Processing and Classification Project
 
-1. Select a new Image:
-
-
 # Part 1: Using the Basic Classifier and Implementing Grad-CAM
 ### 1. Find an Image:
-- desert_car.jpg from Unsplash
+- dog.jpg from Unsplash
 ### 2. Run the Basic Classifier:
-Use the provided base_classifier.py program to classify the image. This version of the program does not include comments or explanations.
-Prompt the AI to explain what each line of code in the program does. Example Prompt:
-"Explain what each line of this Python program does."
+Top-3 Predictions:
+1: timber_wolf (0.27)
+2: borzoi (0.12)
+3: African_hunting_dog (0.10)
 
-If you do not have previous experience with Python, comment on whether the AI's explanations make sense to you. If you do have Python experience, comment on whether the AI's explanation agrees with your interpretation.
-Record the top-3 predictions and their confidence scores.
-Use the base_classifier.py program to classify the image.
-Record the top-3 predictions and their confidence scores.
-Implement Grad-CAM:
-Prompt an AI to help you generate code to implement the Grad-CAM heatmap overlay. Example Prompt:
-"How can I add Grad-CAM to my image classifier to visualize the areas of the image the model focuses on?"
+I don't have much previous experience with writing my own Python code, but the explanations given by AI seem pretty easy to understand, especially since the functions used are well named.
 
-Add the Grad-CAM functionality to the base_classifier.py program.
-Understand Grad-CAM:
-Prompt the AI to explain what Grad-CAM is and how it works. Example Prompt:
-"Can you explain the Grad-CAM algorithm and how it highlights important areas of an image?"
+### 3. Implement Grad-CAM:
+There were some issues with the initial AI implementation of Grad-CAM which took some time to debug(if I don't make it, this is why I'm late). I ended up just looking it up because chatGPT wasn't helping, and I used the solution on https://keras.io/examples/vision/grad_cam/
 
-Analyze the Heatmap:
-Run the updated classifier with Grad-CAM on your image.
-Identify which parts of the image the classifier focuses on most heavily.
-Record your observations.
-Part 2: Experimenting with Image Occlusion
-Generate Occlusion Ideas:
-Prompt the AI to suggest three ways to occlude an image to obscure the areas identified in the Grad-CAM heatmap. Example Prompt:
-"What are three ways to occlude an image, such as adding a black box or blurring parts of it?"
+I ended up saving it in "diy_heatmap.py" because I wanted to save the base_classifier (as "provided_classifier.py").
+"base_classifier.py" and "test_classifier.py" were both my attempt at using chatGPT to solve the problem. The back and forth with chatGPT was quite frustrating because it would keep acting like I provided the incorrect code, and it ended up going in a circle.
 
-Implement Occlusions:
-Modify the base_classifier.py program to implement the three occlusions suggested by the AI.
-Each occlusion should target the area highlighted by the Grad-CAM heatmap.
-Test the Occlusions:
-Run the classifier on each occluded image.
-Record the top-3 predictions and confidence scores for each occlusion.
-Analyze the Results:
-Compare the classifier's performance on the original image vs. the occluded versions.
-Answer the following questions:
+### 4. Understand Grad-CAM:
+It was interesting to learn about Grad-CAM from a high level perspective. I think this step should come before step 3.
+
+### 5. Analyze the Heatmap:
+Grad-CAM seems to focus mostly on the neck, back of the face, and parts of the ear. I thought it would focus more on the snout, so that was a bit surprising to me.
+
+# Part 2: Experimenting with Image Occlusion
+### 1. Generate Occlusion Ideas:
+Based on the AI feedback, I will be using a black box, blurring, and pixelation.
+
+### 2. Implement Occlusions:
+I created these in separate programs for ease of use.
+
+### 3. Test the Occlusions:
+Black Box (occluded_image):
+1: African_hunting_dog (0.12)
+2: muzzle (0.06)
+3: Scotch_terrier (0.04)
+
+Blur (blurred_image):
+1: Saluki (0.53)
+2: borzoi (0.12)
+3: Afghan_hound (0.09)
+
+Pixelation (pixelated_image):
+1: African_hunting_dog (0.06)
+2: cairn (0.03)
+3: Irish_wolfhound (0.03)
+
+### 4. Analyze the Results:
 Did the classifier struggle to classify the occluded images?
+   - The classifier slightly struggled to classify the occluded images, but not as much as I thought it would.
 Which occlusion had the greatest impact on performance?
-Part 3: Creating and Experimenting with Image Filters
-Explore Filter Ideas:
-Start with the provided basic_filter.py program, which applies a simple blur to an image. This version of the program does not include comments or explanations.
-Prompt the AI to explain what each line of code in the program does. Example Prompt:
-"Explain what each line of this Python program does."
+   - Surprisingly, the blurred image had the most different predictions from the original, even though it was the easiest for me to see.
 
-If you do not have previous experience with Python, comment on whether the AI's explanations make sense to you. If you do have Python experience, comment on whether the AI's explanation agrees with your interpretation.
-Prompt the AI to suggest three alternative filters to apply. Example Prompt:
-"What are three different filters I can apply to an image, such as edge detection or sharpening?"
+# Part 3: Creating and Experimenting with Image Filters
+### 1. Explore Filter Ideas:
+I don't have much previous experience with writing my own Python code, but the explanations given by AI seem pretty easy to understand, especially since the functions used are well named.
 
-Start with the provided basic_filter.py program, which applies a simple blur to an image.
-Prompt the AI to suggest three alternative filters to apply. Example Prompt:
-"What are three different filters I can apply to an image, such as edge detection or sharpening?"
+The 3 filters the AI suggested were:
+1. Edge Detection
+2. Sharpening
+3. Embossing
 
-Implement Filters:
-Modify the basic_filter.py program to implement the three new filters suggested by the AI.
-Design Your Own Artistic Filter:
-Use creative prompts to direct the AI to develop an artistic filter. Example Prompt:
-"Modify the program to create a filter that makes the image look 'deep fried,' with exaggerated colors and noise."
+### 2. Implement Filters:
+The 3 filters were pretty poor quality after the resizing, but they all worked!
 
-Experiment with different ideas and iterate on the filter until you're satisfied with the result.
+### 3. Design Your Own Artistic Filter:
+The prompt I used:
+"Modify the program to create a filter that makes the image look 'spacey' with exaggerated colors and noise."
+
+I liked the idea of the first pass, but it felt too blurry. After removing the blur effect I liked it a lot better.
    
-
+### Additional Notes
+After completing all the steps I organized the files into folders. I'm not sure if you plan to test each program, so sorry if that makes it harder for you, but it should be easier to view this way!
